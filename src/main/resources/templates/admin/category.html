@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="./layout/adminlayout.html">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<body>
+    <div layout:fragment="context">
+        <div class="row mt-5">
+            <div class="col-sm-6">
+                <img src="#" th:src="@{'/images/'+ ${category.name}+'.jpeg'}" class="img-fluid" alt="Responsive Image">
+            </div>
+
+            <div class="col-sm-6">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ab assumloenda at delectus dignissimos, dolore doloribus fugiat, fugit incidunt inventore minus molestiae nesciunt nobis odit quidem rerum sapiente sit ut.
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, amet animi blanditiis culpa debitis deleniti earum eius, facere ipsam iure labore magnam, qui quos temporibus vitae? Eos ipsa quae qui.
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. A, adipisci aliquam assumenda autem beatae blanditiis cupiditate debitis dolores eaque eum ex, ipsa natus quae, quibusdam saepe sed soluta. Doloremque, maiores.
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, aliquid aperiam architecto aspernatur at, atque deleniti ducimus eos illum incidunt laboriosam laudantium magnam ratione sint, soluta suscipit tempore vel velit?
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
