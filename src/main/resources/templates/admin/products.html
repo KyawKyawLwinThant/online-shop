@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="./layout/adminlayout.html">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<body>
+    <div layout:fragment="context">
+        <div class="table-responsive mt-5">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Last Updated</th>
+                    <th>Category</th>
+                    <th>Details</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                <tr th:each="pro :${products}">
+                    <td th:text="${pro.name}"></td>
+                    <td th:text="${pro.quantity}"></td>
+                    <td th:text="${pro.price}"></td>
+                    <td th:text="${pro.lastUpdated}"></td>
+                    <td th:text="${pro.category.name}"></td>
+                    <td><a href="#" th:href="@{'/product/item?id='+ ${pro.id}}"
+                    class="btn btn-primary">Details</a> </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <a href="#" th:href="@{/product}" class="btn btn-primary">Create New Product</a>
+    </div>
+</body>
+</html>

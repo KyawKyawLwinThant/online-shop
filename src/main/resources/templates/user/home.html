@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="./layout/userLayout.html">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<body>
+    <div layout:fragment="home">
+
+
+        <div class="container">
+            <div class="row mt-5">
+                <div class="col-sm-6">
+                    <a th:href="@{/product/category/2}">
+                        <img class="img-fluid" th:src="@{/images/Flowers.jpeg}" alt="Responsive Image">
+                    </a>
+
+                </div>
+                <div class="col-sm-6">
+                    <a th:href="@{/product/category/1}">
+                        <img th:src="@{/images/Fruits.jpeg}" alt="Responsive Image">
+                    </a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+
+                </div>
+                <div class="col-sm-6">
+
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</body>
+</html>

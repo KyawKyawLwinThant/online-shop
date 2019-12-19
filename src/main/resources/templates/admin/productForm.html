@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="./layout/adminlayout.html">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<body>
+    <div layout:fragment="context">
+        <form action="#" th:action="@{/product}" th:object="${product}" method="post">
+
+            <div class="form-group">
+                <div class="row mt-5">
+                    <label for="name" class="col-sm-2 col-form-label">Name</label>
+                    <div class="col-sm-8">
+                        <input id="name" th:field="*{name}" type="text" class="form-control">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="row">
+                    <label for="quantity" class="col-sm-2 col-form-label">Quantity</label>
+                    <div class="col-sm-8">
+                        <input id="quantity" th:field="*{quantity}" type="number" class="form-control">
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <div class="row">
+                    <label for="price" class="col-sm-2 col-form-label">Price</label>
+                    <div class="col-sm-8">
+                        <input id="price" th:field="*{price}" step="any" type="number" class="form-control">
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <div class="row">
+                    <label for="lastUpdated" class="col-sm-2 col-form-label">LastUpdated</label>
+                    <div class="col-sm-8">
+                        <input id="lastUpdated" th:field="*{lastUpdated}"  type="date" class="form-control">
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <div class="row">
+                    <label for="category" class="col-sm-2 col-form-label">Category</label>
+                    <div class="col-sm-8">
+                        <select class="form-control" th:field="*{category}" name="category" id="category">
+                            <option th:each="cat: ${categories}"
+                                    th:value="${cat.id}" th:text="${cat.name}"></option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+
+        </form>
+
+    </div>
+</body>
+</html>
