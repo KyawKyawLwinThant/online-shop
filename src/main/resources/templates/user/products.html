@@ -17,7 +17,7 @@
                             <h5 class="card-title" th:text="${pro.name}"></h5>
                             <p class="card-text" th:text="${'Price -'+ pro.price +' $'}"></p>
                             <p class="card-text" th:text="${'Quantity-'+ pro.quantity +' items.'}"></p>
-                            <a href="#" class="btn btn-success">Details</a>
+                            <a th:href="@{'/product/'+ ${pro.id}}" class="btn btn-success">Details</a>
                         </div>
                     </div>
                 </div>

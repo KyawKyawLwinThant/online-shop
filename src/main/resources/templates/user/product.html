@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="./layout/userLayout.html">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<body>
+    <div layout:fragment="home">
+
+        <div class="container">
+            <h3 th:text="${cartSize}"></h3>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card">
+                        <img class="card-img" style="height: 400px"  th:src="@{'/images/'+${product.name}+'.jpeg'}" alt="Card image cap">
+                    </div>
+
+                </div>
+                <div class="col-md-6 mt-3">
+                    <h5 class="text-center text-muted" th:text="${product.name}"></h5>
+                    <p th:text="${'Quantity : '+product.quantity}"></p>
+                    <p th:text="${'Price:'+ product.price +' $'}"></p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab beatae dignissimos distinctio doloremque ducimus enim eum eveniet fugit, harum labore maxime minima nemo obcaecati quas quasi quidem rerum tenetur voluptates!</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda atque eius eos in minus quam recusandae voluptas. At eveniet expedita magni mollitia quisquam sapiente veniam. A aliquam dolores neque voluptatibus!</p>
+                </div>
+            </div>
+
+
+
+            <br>
+            <br>
+            <br>
+            <div>
+                <a href="#" class="btn btn-success mx-3" th:href="@{/}">Continue Shopping</a>
+                <a href="#" th:href="@{'/cart/add/'+ ${product.id}}" class="btn btn-success">Add to Cart</a>
+            </div>
+
+        </div>
+
+
+
+    </div>
+</body>
+</html>
