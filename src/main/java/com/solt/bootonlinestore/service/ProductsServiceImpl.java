@@ -31,4 +31,10 @@ public class ProductsServiceImpl implements ProductsService {
     public List<Products> findAll() {
         return this.productRepository.findAll();
     }
+
+    @Override
+    public List<Products> findAllByCategoryId(long cid) {
+        return this.productRepository.findByProductsCategory(cid);
+    }
+
 }

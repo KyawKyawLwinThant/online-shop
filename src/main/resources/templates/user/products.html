@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="./layout/userLayout.html">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<body>
+    <div layout:fragment="home">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-md-6" th:each="pro:${products}">
+                    <div class="card h-100">
+                        <img th:src="@{'/images/'+ ${pro.name}+'.jpeg'}" class="card-img-top" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title" th:text="${pro.name}"></h5>
+                            <p class="card-text" th:text="${'Price -'+ pro.price +' $'}"></p>
+                            <p class="card-text" th:text="${'Quantity-'+ pro.quantity +' items.'}"></p>
+                            <a href="#" class="btn btn-success">Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
