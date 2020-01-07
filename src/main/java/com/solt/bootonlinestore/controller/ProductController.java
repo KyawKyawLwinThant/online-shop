@@ -8,6 +8,9 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 @Controller
 @RequestMapping("/product")
 public class ProductController {
@@ -59,8 +62,15 @@ public class ProductController {
     }
 
     @GetMapping("/{id}")
-    public String showProductDetails(Model model,@PathVariable long id){
+    public String showProductDetails(Model model, @PathVariable long id,
+                                     HttpServletRequest request){
         model.addAttribute("product",productsService.findProductsById(id));
+        HttpSession session=request.getSession(false);
+        if(session!=null){
+            model.addAttribute("cartSize",session.getAttribute("cartItem"));
+        }
+
+
         return "user/product";
     }
 

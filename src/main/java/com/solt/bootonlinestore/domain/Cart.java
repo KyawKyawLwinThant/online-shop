@@ -19,6 +19,14 @@ public class Cart {
     }
 
     public int cartSize(){
+        if(cartItems.isEmpty()){
+            return 0;
+        }
         return cartItems.size();
     }
+
+    public Set<Products> getCartItems(){
+        return this.cartItems;
+    }
+
 }

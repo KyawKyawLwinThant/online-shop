@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="./layout/userLayout.html">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<body>
+<div layout:fragment="home">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-md-6" th:each="pro:${products}">
+                <div class="card">
+                    <img style="height: 450px" th:src="@{'/images/'+ ${pro.name}+'.jpeg'}" class="card-img-top" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title" th:text="${pro.name}"></h5>
+                        <p class="card-text" th:text="${'Price -'+ pro.price +' $'}"></p>
+                        <p class="card-text" th:text="${'Quantity-'+ pro.quantity +' items.'}"></p>
+                        <a th:href="@{'/product/'+ ${pro.id}}" class="btn btn-success">Details</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <br>
+        <div class="mb-4">
+            <a href="#" class="btn btn-success mx-3">Check Out</a>
+            <a href="#" th:href="@{/}" class="btn btn-success mx-3">Continue Shopping</a>
+            <a href="#" th:href="@{/cart/clear}" class="btn btn-success">Clear Cart</a>
+        </div>
+    </div>
+</div>
+</body>
+</html>
