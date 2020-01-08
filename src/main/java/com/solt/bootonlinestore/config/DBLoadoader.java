@@ -10,9 +10,9 @@ import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 @Component
-public class DBLoadoader implements CommandLineRunner {
+public class DBLoadoader {
 
-    private final RoleRepository roleRepository;
+  /*  private final RoleRepository roleRepository;
     private final UserRepository userRepository;
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
 
@@ -46,11 +46,16 @@ public class DBLoadoader implements CommandLineRunner {
         userUser.getRoles().add(userRole);
         userRole.getUserList().add(userUser);
 
-        roleRepository.save(adminRole);
+       roleRepository.save(adminRole);
         roleRepository.save(userRole);
         userRepository.save(adminUser);
         userRepository.save(userUser);
 
 
+
+
     }
+
+   */
+
 }

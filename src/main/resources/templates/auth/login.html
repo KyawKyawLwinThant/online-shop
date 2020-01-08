@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="./layout/userLayout.html">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Login</title>
+</head>
+<body>
+    <div layout:fragment="home">
+
+        <div class="container border rounded p-sm-5 mb-5"
+         style="max-width: 400px">
+
+            <h3 class="text-center mb-4">Sing In</h3>
+            <form action="#" th:action="@{/login}" method="post" role="form">
+                <div class="alert alert-danger" th:if="${param.error !=null}">
+                    <p>
+                        Invalid UserName and Password.
+                    </p>
+                </div>
+                <div class="alert alert-success" th:if="${param.logout !=null}">
+                    <p>
+                        Successfully logout!
+                    </p>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="email" placeholder="Enter Email" class="form-control" required autofocus>
+                </div>
+                <div class="form-group">
+                    <input type="password" name="password" placeholder="Enter Password" class="form-control">
+                </div>
+
+                <div class="custom-control custom-checkbox form-group">
+                    <input type="checkbox" class="custom-control-input" name="remember-me" id="remeberme">
+                    <label for="remeberme" class="custom-control-label">Remember Me</label>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-sm">Submit</button>
+                <p class="text-center m-2">Not a member?
+                    <a class="text-info" href="#">Register</a></p>
+
+            </form>
+
+
+
+        </div>
+
+
+    </div>
+</body>
+</html>
