@@ -31,7 +31,7 @@ public class ProductController {
         return "admin/productForm";
     }
 
-    @PostMapping
+    @PostMapping()
     public String process(Products products, BindingResult result){
         if(result.hasErrors()){
             return "admin/productForm";
