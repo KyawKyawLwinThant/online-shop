@@ -8,12 +8,34 @@
 </head>
 <body>
     <div layout:fragment="home">
+        <div class="container">
 
+        <div class="text-center display-4 mt-5">Welcome <p th:text="${user.email}"></p></div>
+            <form action="#" th:object="${cart}" th:action="@{/order/cart}" method="post">
 
-        <h1 class="text-center">Checkout</h1>
+            <div class="table-responsive">
+            <table class="table mb-5">
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="pro :${products}">
+                    <td th:text="${pro.name}"></td>
+                    <td><input th:field="*{quantities}" type="number"></td>
+                    <td th:text="${pro.price}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
 
-
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
 
     </div>
+
 </body>
 </html>

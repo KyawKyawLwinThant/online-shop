@@ -1,6 +1,7 @@
 package com.solt.bootonlinestore.controller;
 
 import com.solt.bootonlinestore.domain.Cart;
+import com.solt.bootonlinestore.domain.Products;
 import com.solt.bootonlinestore.domain.User;
 import com.solt.bootonlinestore.repository.UserRepository;
 import com.solt.bootonlinestore.service.UserDetailsServiceImpl;
@@ -8,6 +9,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+
+import java.util.Set;
 
 @Controller
 public class OrderController {
@@ -43,9 +46,30 @@ public class OrderController {
 
         model.addAttribute("user",userRepository.getOne(userId));
         model.addAttribute("products",cart.getCartItems());
-
+        model.addAttribute("cart",new Cart());
         return "user/checkout";
     }
+    @PostMapping("/order/cart")
+    public String checkoutCart(Cart mycart,Model model){
+        Set<Products> productsSet=cart.getCartItems();
+
+                double sum=0;
+                int i=0;
+               for(Products product:productsSet){
+                  sum+=product.getPrice()* mycart.getQuantities().get(i);
+                  i++;
+               }
+        System.out.println(sum);
+
+         model.addAttribute("sum",sum);
+
+        return "user/success";
+    }
+
+    //quanity * cart.product.prince + = sum
+    //product name
+    //product price
+    //product quantity
 
 
     private long userId;

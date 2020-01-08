@@ -23,4 +23,7 @@ public class Products {
 
     @ManyToOne
     private Category category;
+
+    @Transient
+    private int buyQuantity;
 }
