@@ -26,4 +26,6 @@ public class Products {
 
     @Transient
     private int buyQuantity;
+    @Transient
+    private double balancePrice;
 }

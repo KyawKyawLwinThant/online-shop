@@ -56,10 +56,15 @@ public class OrderController {
                 double sum=0;
                 int i=0;
                for(Products product:productsSet){
+
+                   product.setBuyQuantity(mycart.getQuantities().get(i));
+
+                   product.setBalancePrice(product.getPrice()*product.getBuyQuantity() );
                   sum+=product.getPrice()* mycart.getQuantities().get(i);
                   i++;
                }
-        System.out.println(sum);
+
+               model.addAttribute("products",productsSet);
 
          model.addAttribute("sum",sum);
 
