@@ -3,6 +3,7 @@ package com.solt.bootonlinestore.controller;
 import com.solt.bootonlinestore.domain.Products;
 import com.solt.bootonlinestore.service.CategoryService;
 import com.solt.bootonlinestore.service.ProductsService;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 @Controller
 @RequestMapping("/product")
@@ -59,6 +61,12 @@ public class ProductController {
                 ,this.productsService.findAllByCategoryId(cid));
         return "user/products";
 
+    }
+    @CrossOrigin
+    @ResponseBody
+    @GetMapping(value = "/api/category/{id}",produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<Products> getAllProductsByCId(@PathVariable long id){
+        return this.productsService.findAllByCategoryId(id);
     }
 
     @GetMapping("/{id}")
